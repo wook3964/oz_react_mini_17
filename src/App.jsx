@@ -3,6 +3,7 @@ import movieListData from '../data/movieListData.json'
 import MovieCard from './components/MovieCard'
 import MovieDatail from './components/MovieDatail'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout'
 
 function Home() {
   
@@ -31,8 +32,10 @@ function App(){
   return(
   <BrowserRouter>
     <Routes>
-      <Route path = "/" element = { <Home /> }/>
-      <Route path = "/movie/:title" element = { < MovieDatail /> }/>
+        <Route path = "/" element = { <Layout /> }>
+          <Route index element = { <Home /> }/>
+          <Route path = "movie/:title" element = { < MovieDatail /> }/>
+        </Route>
     </Routes>
   </BrowserRouter>
   )
