@@ -4,14 +4,14 @@ import { IMG_URL } from './MovieCard';
 import movieDetailData from '../../data/movieDetailData.json';
 
 export default function MovieDatail() {
-  const { title } = useParams(); 
+  const { title } = useParams();
   const { state } = useLocation(); 
       
   
   if (!state) {
     return <div className='p-8 min-h-screen'>영화 제목: {title} - 상세 정보를 불러오는 중이거나 데이터가 없습니다.</div>;
   }
-        
+    
   return (
     // 전체
         <div className='flex justify-center p-5 md:p-10 min-h-screen'>
@@ -35,21 +35,21 @@ export default function MovieDatail() {
                             평점 : {state.vote_average.toFixed(1)}
                         </span>
                     </div>
-                {/* 장르 정보 */}
-                <div className='inlime-flex text-center'>
-                    <span className='px-4 py-1.5 rounded-full text-sm font-medium text-center'>
-                        {movieDetailData.genres.map(genre => genre.name).join(', ')}
-                    </span>
-                </div>
-                {/* 줄거리 정보 */}
-                <div className='flex flex-col gap-3'>
-                    <h2 className='text-xl sm:text-2xl font-bold'>
-                        줄거리
-                    </h2>
-                    <p className='leading-relaxed text-base sm:text-lg'>
-                        {state.overview ? state.overview : "내용이 없습니다."}
-                    </p>
-                </div>
+                    {/* 장르 정보 */}
+                    <div className='inlime-flex text-center'>
+                        <span className='px-4 py-1.5 rounded-full text-sm font-medium text-center'>
+                            {movieDetailData.genres.map(genre => genre.name).join(', ')}
+                        </span>
+                    </div>
+                    {/* 줄거리 정보 */}
+                    <div className='flex flex-col gap-3'>
+                        <h2 className='text-xl sm:text-2xl font-bold'>
+                            줄거리
+                        </h2>
+                        <p className='leading-relaxed text-base sm:text-lg'>
+                            {state.overview ? state.overview : "내용이 없습니다."}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
