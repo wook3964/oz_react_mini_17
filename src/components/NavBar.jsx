@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar() {
   return (
-    <div className='flex items-conter justify-between px-6 py-4 shadow-md border-b'>
+    // siicky CSS로 상단바 고정
+    <nav className='sticky top-0 z-50 bg-white flex items-center justify-between px-6 py-4 shadow-md border-b'>
         {/* 로고영역 */}
         <div className='logo flex-shrink:0'>
             <Link to="/" className='flex'>
@@ -20,7 +21,7 @@ export default function NavBar() {
                 <input
                 type="text"
                 placeholder="영화 제목을 입력하세요"
-                className='w-full bg-[rgb(96,96,92)] text-white px-5 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all'
+                className='w-full bg-[#3f3f3f] text-white px-5 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all'
                 />
             </div>
         </div>
@@ -30,6 +31,6 @@ export default function NavBar() {
             <button className='border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-red-500 font-bold py-2 px-4 rounded-md transition-all'>로그인</button>
             <button className='border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-red-500 font-bold py-2 px-4 rounded-md transition-all'>회원가입</button>
         </div>
-    </div>
+    </nav>
   )
 }
