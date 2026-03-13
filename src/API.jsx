@@ -4,12 +4,12 @@ import MovieCard from './components/MovieCard';
 const TMDB_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-// TMDB 에서 알려준 옵션 설정
+// TMDB 에서 알려준 옵션 설정 / 요청
 export const options = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: `Bearer ${TMDB_TOKEN}` //내 토큰
+        Authorization: `Bearer ${TMDB_TOKEN}` //내 토큰 노출로 AI활용
     }
 };
 
@@ -31,7 +31,7 @@ export const getPopularMovies = async () => {
         return [];
     }
 }
-
+//title로 되어있던 props를 MovieId로 변경
 export const getMovieDatail = async (MovieId) => {
     try {
         const response = await fetch(`${BASE_URL}/movie/${MovieId}?language=ko-KR`, options);
